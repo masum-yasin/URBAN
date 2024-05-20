@@ -120,8 +120,7 @@
                     <a class="nav-link text-white pl-2"
                         href="http://localhost/urban_pathshala/admin/dashboard">Dashboard</a>
                 </li>
-
-
+                
             </ul>
 
         </nav>
@@ -272,7 +271,7 @@
                         (<small><sup><i class="text-danger fas fa-star"></i></sup></small>) field required
                     </div>
                     <div class="card-body ">
-                        <form class="" method="post" action="{{route('biodata.store')}}">
+                        <form class="" method="post" action="{{route('biodata.storePersonalInfo')}}">
                             @csrf
                             <div class="card bg-white mb-3 shadow-sm ">
                                 <div class="card-header p-2 bg-light">
@@ -309,9 +308,7 @@
                                         and Projects Information</div>
                                     <div class="card-title font-weight-bold mb-0 float-right">
                                         <div class="input-group">
-                                            {{-- <input style="width:40px;" type="text" required=""
-                                                class="form-control form-control-sm add_text_com"
-                                                id="addCompanyInput"> --}}
+                                         
                                             <span class="input-group-append">
                                                 <button data-com="0" id="addCompanyBtn"
                                                     class="btn btn-sm btn-info btn-sm add_more_com add_more"
@@ -442,152 +439,7 @@
                 });
             </script>
 
-            <!-- <script>
-                // $('.add_more').on('click',function(){
-                //    alert(0)
-                function addFn() {
-                    const divEle = document.getElementById("inputFields");
-                    divEle.innerHTML += `<div class="card-header">
-                                    <button type="button" class="btn btn-sm btn-danger btn-sm 	float-right remove_company delete"><i class="fas fa-trash-alt"></i></button>
-                                    <div class="card-title font-weight-bold mb-0  text-success float-left mt-1">Company Employee Information</div>
-                                </div>
-                                <div class="card-body">
-                                    <div class=" row no-gutters">
-                                        <div class="col-md-6">
-                                            <div class="form-group row no-gutters">
-                                                <div class="col-md-3">
-                                                    <label class="font-weight-bold  text-right">Company Name:<small><sup><small><i class="text-danger fas fa-star"></i></small></sup>
-                                                        </small>
-                                                    </label>
-                                                </div>
-                                                <div class="col-md-8">
-                                                    <input type="text" required="" name="company_name[]" class="form-control form-control-sm  required " id="company_name" placeholder="Enter Company Name" value="">
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-6">
-                                            <div class="form-group row no-gutters">
-                                                <div class="col-md-3">
-                                                    <label class="font-weight-bold  text-right">Mobile:<small><sup><small><i class="text-danger fas fa-star"></i></small></sup>
-                                                        </small>
-                                                    </label>
-                                                </div>
-                                                <div class="col-md-8">
-                                                    <input type="text" required="" name="mobile1[0]" maxlength="11" class="form-control form-control-sm  required " id="mobile1" placeholder="Enter Mobile Number" value="">
-                                                </div>
-                                            </div>
-                                            
-                                        </div>
-                                    </div>
-                                    <div class="card bg-light mb-3 shadow-sm ">
-                                        <div class="card-header  p-2  clearfix bg-success">
-                                            <div class="card-title font-weight-bold mb-0 text-dark float-left mt-1">All Projects Information</div>
-                                            <div class="card-title font-weight-bold mb-0  float-right">
-                                                <div class="input-group">
-                                                    <input style="width:40px;" type="text" required="" class="form-control form-control-sm  add_text_project" value="1">
-                                                    <span class="input-group-append"><button data-com="0" data-val="2" class="btn btn-sm btn-success btn-sm add_more_project" onclick="addPfn()" type="button">Add Projects</button></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card m-3">
-                                            <div class="card-header">
-                                                <button type="button" class="btn btn-sm btn-danger btn-sm 	float-right remove_project delete"><i class="fas fa-trash-alt"></i></button>
-                                                <div class="card-title font-weight-bold mb-0 text-primary float-left mt-1">Projects Information</div>
-                                            </div>
-                                            <div class="card-body">
-                                                <div class=" row no-gutters">
-                                                    <div class="col-md-6">
-                                                        <div class="form-group row no-gutters">
-                                                            <div class="col-md-3">
-                                                                <label class="font-weight-bold  text-right">Project Name:<small><sup><small><i class="text-danger fas fa-star"></i></small></sup>
-                                                                    </small>
-                                                                </label>
-                                                            </div>
-                                                            <div class="col-md-8">
-                                                                <input type="text" required="" name="project_name[]" class="form-control form-control-sm required" id="project_name" placeholder="Enter Project Name" value="">
-                                                            </div>
-                                                        </div>
-                                                        
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-group row no-gutters">
-                                                            <div class="col-md-3">
-                                                                <label class="font-weight-bold  text-right">Project Role :<small><sup><small><i class="text-danger fas fa-star"></i></small></sup>
-                                                                    </small>
-                                                                </label>
-                                                            </div>
-                                                            <div class="col-md-8">
-                                                                <input type="text" required="" name="project_role[]" class="form-control form-control-sm  required " id="project_role" placeholder="Enter Project Role" value="">
-
-                                                            </div>
-                                                        </div>
-                                                        
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
-                                    
-                                </div>`
-                }
-
-                function addPfn() {
-                    const divEle = document.getElementById("inputFieldsProject");
-                    divEle.innerHTML += `<div class="card bg-light mb-3 shadow-sm ">
-                                        <div class="card-header  p-2  clearfix bg-success">
-                                            <div class="card-title font-weight-bold mb-0 text-dark float-left mt-1">All Projects Information</div>
-                                            <div class="card-title font-weight-bold mb-0  float-right">
-                                                <div class="input-group">
-                                                    <input style="width:40px;" type="text" required="" class="form-control form-control-sm  add_text_project" value="1">
-                                                    <span class="input-group-append"><button data-com="0" data-val="2" class="btn btn-sm btn-success btn-sm add_more_project" onclick="addPfn()" type="button">Add Projects</button></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card m-3">
-                                            <div class="card-header">
-                                                <button type="button" class="btn btn-sm btn-danger btn-sm 	float-right remove_project delete"><i class="fas fa-trash-alt"></i></button>
-                                                <div class="card-title font-weight-bold mb-0 text-primary float-left mt-1">Projects Information</div>
-                                            </div>
-                                            <div class="card-body">
-                                                <div class=" row no-gutters">
-                                                    <div class="col-md-6">
-                                                        <div class="form-group row no-gutters">
-                                                            <div class="col-md-3">
-                                                                <label class="font-weight-bold  text-right">Project Name:<small><sup><small><i class="text-danger fas fa-star"></i></small></sup>
-                                                                    </small>
-                                                                </label>
-                                                            </div>
-                                                            <div class="col-md-8">
-                                                                <input type="text" required="" name="project_name[0][0]" class="form-control form-control-sm required" id="project_name" placeholder="Enter Project Name" value="">
-                                                            </div>
-                                                        </div>
-                                                        
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-group row no-gutters">
-                                                            <div class="col-md-3">
-                                                                <label class="font-weight-bold  text-right">Project Role :<small><sup><small><i class="text-danger fas fa-star"></i></small></sup>
-                                                                    </small>
-                                                                </label>
-                                                            </div>
-                                                            <div class="col-md-8">
-                                                                <input type="text" required="" name="project_role[0][0]" class="form-control form-control-sm  required " id="project_role" placeholder="Enter Project Role" value="">
-
-                                                            </div>
-                                                        </div>
-                                                        
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
-                                    `
-                }
-                // })
-            </script> -->
+            
 </body>
 {{-- ${companyId} --}}
 
